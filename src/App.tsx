@@ -50,7 +50,7 @@ function App() {
 
         <div className="flex flex-col w-full my-5">
           <h1 className="text-4xl text-left mb-5">OUR ROOMS</h1>
-          <div className="md:grid md:grid-cols-3 md:gap-2 flex flex-col">
+          <div className="md:grid md:grid-cols-3 md:gap-2 flex flex-col gap-2">
             <div className="col-start-1">
               <img
                 src="/images/room1.jpg"
@@ -66,7 +66,13 @@ function App() {
                   className="h-full"
                 />
               </div>
-              <div className="row-start-2"></div>
+              <div className="row-start-2">
+                <img
+                    src="/images/room6.jpg"
+                    alt="Lenry Hotel Royal Suite"
+                    className="h-full"
+                  />  
+              </div>
             </div>
             <div className="col-start-3 grid grid-rows-2 gap-2">
               <div className="row-start-1 bg-gray-200 flex flex-col justify-around items-center p-3">
@@ -83,7 +89,7 @@ function App() {
               </div>
               <div className="row-start-2">
                 <img
-                  src="/images/room1.jpg"
+                  src="/images/room4.jpg"
                   alt="Lenry Hotel Ambassidorial Suite"
                   className="h-full"
                 />
@@ -119,16 +125,14 @@ function App() {
 
         <div className="my-5 w-full">
           <h1 className="text-4xl text-left mb-5">BOOKING</h1>
-          <div>
             <form action="" className="flex md:flex-row flex-col justify-between w-full">
-              <input type="date"  className="mb-5 p-5" />
-              <input type="date" className="flex mb-5" />
+              <input type="date"  className="mb-5" />
+              <input type="date" className="mb-5" />
               <input type="number" placeholder="Number of Guests" className="mb-5" />
               <button className="bg-black rounded-xl text-sm text-white px-3 py-1 mb-5">
                 Apply
               </button>
             </form>
-          </div>
         </div>
       </div>
     </div>
