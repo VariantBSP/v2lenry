@@ -122,7 +122,7 @@ function App() {
           <div>
             <form action="" className="flex md:flex-row flex-col justify-between">
               <input type="date"  className="mb-5 p-5" />
-              <input type="date" className="mb-5" />
+              <input type="date" className="flex mb-5" />
               <input type="number" placeholder="Number of Guests" className="mb-5" />
               <button className="bg-black rounded-xl text-sm text-white px-3 py-1 mb-5">
                 Apply
