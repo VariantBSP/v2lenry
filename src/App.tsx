@@ -43,7 +43,6 @@ function App() {
   };
 
   const handleSubmit = async (e: any) => {
-    e.preventDefault();
     console.log(guestDetail);
     await addDoc(guestCollectionRef, guestDetail);
   };
