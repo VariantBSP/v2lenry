@@ -1,12 +1,61 @@
-import React from "react";
-import logo from "./logo.svg";
+import { useEffect, useState } from "react";
 import "./App.css";
+import { collection, getDocs, addDoc } from "firebase/firestore/lite";
+import { db } from "./config/fbConfig";
 
 function App() {
+  const arrival = "";
+  const depature = "";
+  const guestNo = 0;
+
+  const guestDetail = { AD: arrival, DD: depature, GN: guestNo };
+
+  const [guestDetails, setGuestDetails] = useState<{}[]>();
+
+  const guestCollectionRef = collection(db, "guestDetail");
+
+  const getDetails = async () => {
+    const data = await getDocs(guestCollectionRef);
+    const newData = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
+    setGuestDetails(newData);
+  };
+
+  useEffect(() => {
+    getDetails();
+  }, []);
+
+  const handleChange = (e: any) => {
+    switch (e.target.name) {
+      case "guestNo":
+        guestDetail.GN = e.target.valueAsNumber;
+        // guestDetail.GN = isNaN(e.target.valueAsNumber) ? 0 : e.target.valueAsNumber;
+        break;
+      case "arrival":
+        guestDetail.AD = e.target.value;
+        break;
+      case "depature":
+        guestDetail.DD = e.target.value;
+        break;
+      default:
+        console.log("error");
+        break;
+    }
+  };
+
+  const handleSubmit = async (e: any) => {
+    e.preventDefault();
+    console.log(guestDetail);
+    await addDoc(guestCollectionRef, guestDetail);
+  };
+
   return (
     <div className="App">
-      <div className="font-inter border-b-4 border-#edeae7 flex flex-row justify-between p-5">
-        <h1 className="text-lg font-bold">Lenry Hotels</h1>
+      <div className="font-inter border-b-4 border-#edeae7 flex flex-row justify-between items-center p-5">
+        <div className="flex items-center gap-3">
+          <img src="/logo.png" alt="Lenry Hotels Logo" className="w-10 h-8" />
+          <h1 className="text-lg font-bold">Lenry Hotels</h1>
+        </div>
+
         <div className="">
           <a className="pr-5" href="#">
             Home
@@ -35,7 +84,7 @@ function App() {
             Welcome to our Cozy Haven, your home away from home
           </span>
           <a
-            href=""
+            href="#booking"
             className="md:flex-1 flex-2 bg-black rounded-xl ml-8 text-sm text-white px-3 py-1 cursor-pointer"
           >
             Book Now
@@ -68,10 +117,10 @@ function App() {
               </div>
               <div className="row-start-2">
                 <img
-                    src="/images/room6.jpg"
-                    alt="Lenry Hotel Royal Suite"
-                    className="h-full"
-                  />  
+                  src="/images/room6.jpg"
+                  alt="Lenry Hotel Royal Suite"
+                  className="h-full"
+                />
               </div>
             </div>
             <div className="col-start-3 grid grid-rows-2 gap-2">
@@ -123,16 +172,39 @@ function App() {
           </div>
         </div>
 
-        <div className="my-5 w-full">
+        <div className="my-5 w-full" id="booking">
           <h1 className="text-4xl text-left mb-5">BOOKING</h1>
-            <form action="" className="flex md:flex-row flex-col justify-between w-full">
-              <input type="date"  className="mb-5" />
-              <input type="date" className="mb-5" />
-              <input type="number" placeholder="Number of Guests" className="mb-5" />
-              <button className="bg-black rounded-xl text-sm text-white px-3 py-1 mb-5">
-                Apply
-              </button>
-            </form>
+          <form
+            action=""
+            className="flex md:flex-row flex-col justify-between w-full"
+          >
+            <input
+              type="date"
+              onChange={handleChange}
+              name="arrival"
+              className="mb-5 cursor:pointer"
+            />
+            <input
+              type="date"
+              onChange={handleChange}
+              name="depature"
+              className="mb-5 cursor:pointer"
+            />
+            <input
+              type="number"
+              onChange={handleChange}
+              placeholder="Number of Guests"
+              name="guestNo"
+              className="mb-5 cursor:pointer"
+            />
+            <button
+              className="bg-black rounded-xl text-sm text-white px-3 py-1 mb-5"
+              type="submit"
+              onClick={handleSubmit}
+            >
+              Apply
+            </button>
+          </form>
         </div>
       </div>
     </div>
