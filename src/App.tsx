@@ -175,29 +175,29 @@ function App() {
           <h1 className="text-4xl text-left mb-5">BOOKING</h1>
           <form
             action=""
-            className="flex md:flex-row flex-col justify-between w-full"
+            className="flex md:flex-row flex-col justify-between items-start w-full"
           >
             <input
               type="date"
               onChange={handleChange}
               name="arrival"
-              className="mb-5 cursor:pointer"
+              className="mb-5 cursor:pointer p-3 w-full"
             />
             <input
               type="date"
               onChange={handleChange}
               name="depature"
-              className="mb-5 cursor:pointer"
+              className="mb-5 cursor:pointer p-3 w-full"
             />
             <input
               type="number"
               onChange={handleChange}
               placeholder="Number of Guests"
               name="guestNo"
-              className="mb-5 cursor:pointer"
+              className="mb-5 cursor:pointer p-3 w-full"
             />
             <button
-              className="bg-black rounded-xl text-sm text-white px-3 py-1 mb-5"
+              className="bg-black rounded-xl text-sm text-white  p-3 w-full mb-5"
               type="submit"
               onClick={handleSubmit}
             >
