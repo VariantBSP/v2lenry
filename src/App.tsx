@@ -59,7 +59,7 @@ function App() {
           <a className="pr-5" href="#">
             Home
           </a>
-          <a className="pr-5" href="#">
+          <a className="pr-5" href="#AboutUs">
             About
           </a>
           <a className="" href="#">
@@ -146,31 +146,6 @@ function App() {
           </div>
         </div>
 
-        <div className="md:grid md:grid-cols-2 md:gap-2 md:h-screen flex flex-col w-full my-5">
-          <div className="bg-gray-200 p-4 flex flex-col justify-between items-center">
-            <span className="text-left">
-              <h1 className="text-4xl pb-8">RESTAURANT AT THE HOTEL</h1>
-              <p>
-                Our chefs prepare some of the tastiest and most nutrious meals.
-                We invite you to come and enjoy!
-              </p>
-            </span>
-            <a
-              href=""
-              className="bg-black rounded-xl text-sm text-white px-3 py-1 cursor-pointer"
-            >
-              Food Options
-            </a>
-          </div>
-          <div className="bg-gray-200">
-            <img
-              src="/images/dinning.jpg"
-              alt="Lenry Hotel Ambassidorial Suite"
-              className="h-full"
-            />
-          </div>
-        </div>
-
         <div className="my-5 w-full" id="booking">
           <h1 className="text-4xl text-left mb-5">BOOKING</h1>
           <form
@@ -205,6 +180,37 @@ function App() {
             </button>
           </form>
         </div>
+
+        <div className="md:grid md:grid-cols-2 md:gap-2 md:h-screen flex flex-col w-full my-5">
+          <div className="bg-gray-200 p-4 flex flex-col justify-between items-center">
+            <span className="text-left">
+              <h1 className="text-4xl pb-8" id="AboutUs">About Us</h1>
+              <div>
+              <p><span>Lenry Hotels &#38; Suites</span> provides a comfortable hotel experience and it's all about the right mix! Located at an acceptable distance from the Express road, very accessible to all travellers and shielded from the hustle and bustle of Kabba central, we offer our corporate clients and walk in guests a perfect blend of relaxation, comfort, and alot of traditional delicacies.</p>
+
+            <p>Located in a remote and safe environment, it is just a 10-minute drive to the City Centre and only 5-minutes away from Obajana road.</p>
+
+            <p>Our hotel is designed for your comfort and convenience. Your security is our primary concern and you'll find our customer care second to none.</p>
+
+            <p>Our hotel has taken important steps to live up to Kogi's future model in the hospitality sector.
+
+                We are passionate about serving you and look forward to having you.</p>
+
+            <p>Welcome to Lenry Hotels &#38; Suites, serving you with a touch of class.</p>
+              </div>
+            </span>
+            
+          </div>
+          <div className="bg-gray-200">
+            <img
+              src="/images/dinning.jpg"
+              alt="Lenry Hotel Ambassidorial Suite"
+              className="h-full"
+            />
+          </div>
+        </div>
+
+        
       </div>
     </div>
   );
