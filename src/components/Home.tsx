@@ -87,9 +87,9 @@ function Home() {
           <Link className="pr-5" to="#">
             Home
           </Link>
-          <Link className="pr-5" to="#AboutUs">
+          <a className="pr-5" href="#AboutUs">
             About
-          </Link>
+          </a>
           <Link className="" to="#">
             Contact
           </Link>
