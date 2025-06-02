@@ -2,7 +2,7 @@ import "../App.css";
 import { collection, addDoc } from "firebase/firestore/lite";
 import { db } from "../config/fbConfig";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 
 function Home() {
@@ -65,34 +65,34 @@ function Home() {
           {navOpen ? <img src="/images/close.svg" alt="navIconClose" /> : <img src="/images/burger-menu.svg" alt="navIcon" />}
           <ul className={`h-50 w-40 bg-white ${navOpen ? "absolute" : "hidden"} top-14 right-6 rounded-xl`}>
             <li className="p-3 border-b-2">
-            <a className="" href="#">
+            <Link className="" to="#">
             Home
-          </a>
+          </Link>
           </li>
 
           <li className="p-3 border-b-2">
-          <a className="" href="#AboutUs">
+          <Link className="" to="#AboutUs">
             About
-          </a>
+          </Link>
           </li>
 
           <li className="p-3 border-b-2">
-          <a className="" href="#">
+          <Link className="" to="#">
             Contact
-          </a>
+          </Link>
           </li>
           </ul>
         </div>
         <div className="hidden md:inline">
-          <a className="pr-5" href="#">
+          <Link className="pr-5" to="#">
             Home
-          </a>
-          <a className="pr-5" href="#AboutUs">
+          </Link>
+          <Link className="pr-5" to="#AboutUs">
             About
-          </a>
-          <a className="" href="#">
+          </Link>
+          <Link className="" to="#">
             Contact
-          </a>
+          </Link>
         </div>
       </div>
       
@@ -158,7 +158,7 @@ function Home() {
                   for both business travellers and vacationers.
                 </p>
                 <a
-                  href=""
+                  href="#booking"
                   className="bg-black rounded-xl text-sm text-white px-3 py-1 cursor-pointer"
                 >
                   Book Now
