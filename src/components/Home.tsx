@@ -2,12 +2,14 @@ import "../App.css";
 import { collection, addDoc } from "firebase/firestore/lite";
 import { db } from "../config/fbConfig";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 
 function Home() {
   const arrival = "";
   const depature = "";
   const guestNo = 0;
+  const navigate = useNavigate();
 
   const guestDetail = { AD: arrival, DD: depature, GN: guestNo };
 
@@ -40,8 +42,15 @@ function Home() {
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
-    console.log(guestDetail);
+    
+    const createGuest = async () => {
     await addDoc(guestCollectionRef, guestDetail);
+      }
+
+        createGuest().then(()=>{
+            console.log('room booked');
+            navigate('/Thanks');
+        });
   };
 
   return (
